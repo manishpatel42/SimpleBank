@@ -46,12 +46,12 @@ namespace SimpleBank.Tests
             var account = bank.GetAccountByOwnerName("Mike's Account");
             var startingBalance = account.Balance;
 
-            var withdraw = new Withdraw(500, account);
+            var withdraw = new Withdraw(400, account);
             bool isWithdrawSuccessful = withdraw.Process();
 
             Assert.That(isWithdrawSuccessful == true);
             Assert.That(startingBalance != account.Balance);
-            Assert.That(account.Balance == 9500);
+            Assert.That(account.Balance == 9600);
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace SimpleBank.Tests
             var account = bank.GetAccountByOwnerName("Mike's Account");
             var startingBalance = account.Balance;
 
-            var withdraw = new Withdraw(1500, account);
+            var withdraw = new Withdraw(600, account);
             bool isWithdrawSuccessful = withdraw.Process();
 
             Assert.That(isWithdrawSuccessful == false);
